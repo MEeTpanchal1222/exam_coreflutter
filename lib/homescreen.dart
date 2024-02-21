@@ -12,6 +12,7 @@ class _homescreenState extends State<homescreen> {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
         debugShowCheckedModeBanner: false,
 
@@ -34,7 +35,12 @@ class _homescreenState extends State<homescreen> {
                    SizedBox(width: 40,),
                        Image(image:AssetImage('assest/homescreen/Group 3.png')),
                    SizedBox(width: 490,),
-                   Text('New Arivales',style: TextStyle(fontSize: 15,color: Colors.black87,fontWeight: FontWeight.bold),),
+                   InkWell(  onTap: () {
+                     setState(() {
+                       Navigator.pushNamed(context, '/home');
+                     });
+                   },
+                       child: Text('New Arivales',style: TextStyle(fontSize: 15,color: Colors.black87,fontWeight: FontWeight.bold),)),
                    SizedBox(width: 30,),
                    Text('Men',style: TextStyle(fontSize: 15,color: Colors.black87,fontWeight: FontWeight.bold),),
                    SizedBox(width: 30,),
@@ -96,7 +102,7 @@ class _homescreenState extends State<homescreen> {
                       ),
                     ],
                   ),
-                      child: Image(image: AssetImage('assest/homescreen/Rectangle 4.png'),height: 350,width: 300,) ,
+                      child: Stack( fit: StackFit.expand,children: [Image(image: AssetImage('assest/homescreen/Rectangle 4.png'),height: 400,width: 400,),],) ,
                     ),
 
                   ],
@@ -226,6 +232,7 @@ class _homescreenState extends State<homescreen> {
               Container(
                 child: Image.asset('assest/homescreen/Group 35.png'),
               ),
+              SizedBox(height: 100,),
               Container(
                 child: Image.asset('assest/homescreen/Group 30.png'),
               ),
